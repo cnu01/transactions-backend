@@ -1,0 +1,2 @@
+pydantic-core==2.10.1
+typing-extensions==4.8.0
