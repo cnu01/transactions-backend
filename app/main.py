@@ -24,7 +24,7 @@ async def lifespan(app: FastAPI):
     
     try:
         await init_beanie(database=database, document_models=[Transaction])
-        await Transaction.get_motor_collection().create_index(
+        await Transaction.get_pymongo_collection().create_index(
             "transaction_id", unique=True, name=INDEX_TRANSACTION_ID
         )
         logger.info(f"Connected to MongoDB: {settings.database_name}")
